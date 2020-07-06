@@ -14,7 +14,7 @@ def call() {
     ProcessBranchNameRequest processBranchNameRequest = new ProcessBranchNameRequest(BRANCH_NAME)
     ProcessBranchNameResponse processBranchNameResponse = processBranchName(processBranchNameRequest)
 
-    if ( false && processBranchNameResponse.doBuild ) {
+    if ( processBranchNameResponse.doBuild ) {
       echo "### Building app on version '${processBranchNameResponse.version}'"
       BuildRequest buildRequest = new BuildRequest(conf, processBranchNameResponse.version)
       build(buildRequest)
